@@ -1,0 +1,95 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.vira-store-sidebar {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: $sidebar-bg;
+  @include col;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__list {
+    padding: 16px 10px 0 10px;
+    border-bottom: 1px solid $primary;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 36px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+
+      &__link {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        gap: 16px;
+        font-size: 16px;
+        padding: 10px;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+
+        &__text {
+          font-size: 16px;
+          font-weight: 500;
+          color: $text;
+        }
+      }
+
+      &__logout {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        gap: 16px;
+        font-size: 16px;
+        padding: 10px;
+
+        &__text {
+          font-size: 16px;
+          font-weight: 500;
+          color: $text;
+        }
+      }
+    }
+
+    &__itemSelected {
+      background-color: $primary-10;
+      border-right: 4px solid $primary;
+      transition: 0.2s ease-in-out;
+      transform: translateX(-16px);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        width: 16px;
+        height: 100%;
+        background-color: #eaf2fe;
+        border-radius: 50%;
+      }
+    }
+
+    .vira-store-sidebar__list__itemSelected
+      .vira-store-sidebar__list__item__text {
+      color: $primary;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}

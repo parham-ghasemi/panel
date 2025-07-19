@@ -1,0 +1,99 @@
+@import "../../../styles/index.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.vira-store-button {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+
+  &.gray-filled {
+    border: 1px solid transparent;
+    background-color: $light;
+
+    .vira-store-button__text {
+      color: $white;
+    }
+
+    &:hover:has(.vira-store-button__text) {
+      background-color: darken($light, 15%);
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+    border: 1px solid $tbl;
+
+    .vira-store-button__text {
+      color: $tbl;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: darken($tbl, 15%);
+      }
+    }
+
+    &:hover {
+      border-color: darken($tbl, 15%);
+    }
+  }
+
+  &.filled {
+    border: 1px solid transparent;
+    background-color: $tbl;
+
+    .vira-store-button__text {
+      color: $white;
+    }
+
+    &:hover:has(.vira-store-button__text) {
+      background-color: darken($tbl, 15%);
+    }
+  }
+
+  &.dark-outlined {
+    background-color: transparent;
+    border: 1px solid $text;
+
+    .vira-store-button__text {
+      color: $text;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: darken($text, 15%);
+      }
+    }
+
+    &:hover {
+      border-color: darken($text, 15%);
+    }
+  }
+
+  &.darkText-outlined {
+    background-color: transparent;
+    border: 1px solid $tbl;
+
+    .vira-store-button__text {
+      color: $text;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: darken($text, 15%);
+      }
+    }
+
+    &:hover {
+      border-color: darken($tbl, 15%);
+    }
+  }
+}

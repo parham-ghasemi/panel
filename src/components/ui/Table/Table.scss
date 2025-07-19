@@ -1,0 +1,54 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.vira-store-table {
+  width: 100%;
+
+  table {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+
+    thead {
+      font-size: 14px;
+      color: $white;
+      background-color: $tbl;
+
+      td {
+        padding: 8px 0;
+      }
+    }
+
+    tbody {
+      border-radius: 8px;
+      background-color: $white;
+
+      td {
+        color: $text;
+        padding: 8px 0;
+        font-size: 14px;
+        text-align: center;
+        border: 0.5px solid $shape;
+        justify-items: center;
+
+        a {
+          color: $primary;
+          font-weight: 600;
+        }
+
+        &:last-child {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

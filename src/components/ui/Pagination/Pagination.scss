@@ -1,0 +1,56 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.vira-store-pagination {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-color: $white;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+
+  &__imgContainer {
+    height: 40px;
+    width: 40px;
+    align-content: center;
+
+    &.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &__prev,
+    &__next {
+      display: flex;
+      place-self: center;
+    }
+
+    &:hover {
+      box-shadow: $shadow;
+    }
+  }
+
+  &__page {
+    color: $shape;
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    width: 40px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $hover;
+    }
+  }
+
+  &__activePage {
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    width: 40px;
+    color: $primary;
+  }
+}

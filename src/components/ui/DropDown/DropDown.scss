@@ -1,0 +1,107 @@
+@import "../../../styles/index.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.vira-store-dropdown {
+  position: relative;
+  width: var(--dropdown-width, 265px);
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $text;
+    text-align: right;
+    margin-bottom: 4px;
+    transition: color 0.2s ease;
+  }
+
+  &__focused {
+    .vira-store-dropdown__control {
+      border: 1px solid $primary-light;
+    }
+
+    .vira-store-dropdown__label {
+      color: $primary-light;
+    }
+  }
+
+  &__control {
+    @include inputBorder;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $light-text;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__menu {
+    @include border;
+    width: 100%;
+    box-shadow: $shadow;
+    overflow: hidden;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 10px;
+    background-color: $white;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+
+    &:hover {
+      border-color: darken($primary-light, 15%);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: $text;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: rgba($primary-light, 0.1);
+      color: $primary-light;
+    }
+
+    &.is-selected {
+      color: $primary-light;
+      font-weight: 600;
+
+      input {
+        accent-color: $primary-light;
+      }
+    }
+
+    input {
+      accent-color: $primary-light;
+    }
+
+    &:has(input:disabled) {
+      color: $light-text;
+      cursor: default;
+    }
+  }
+}

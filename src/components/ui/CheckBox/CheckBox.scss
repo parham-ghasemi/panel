@@ -1,0 +1,72 @@
+@import "../../../styles/index.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.vira-store-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  direction: rtl;
+
+  input {
+    display: none;
+  }
+
+  &__box {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid $light-text;
+  }
+
+  &__label {
+    font-size: 14px;
+    color: $light-text;
+    transition: color 0.2s ease;
+  }
+
+  .vira-store-dropdown__item:hover input:not(:checked) + &__box {
+    border: 2px solid rgba(10, 60, 85, 0.6);
+  }
+
+  .vira-store-dropdown__item:hover input:not(:checked) ~ &__label {
+    color: rgba(10, 60, 85, 0.6);
+    font-weight: 700;
+  }
+
+  input:checked + &__box {
+    border-color: $primary;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      right: 4px;
+      width: 4px;
+      height: 8px;
+      border: solid $primary;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ &__label {
+    color: $text;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .vira-store-checkbox__box {
+      border-color: $light-text;
+      background-color: #f2f2f2;
+    }
+
+    .vira-store-checkbox__label {
+      color: $bg;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../../styles/mixins.scss" as *;
+@use "../../../styles/variables.scss" as *;
+
+.vira-store-sort {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: $text;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $primary;
+  }
+
+  button {
+    width: 192px;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid $shape;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $text;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:focus-within {
+      border-color: darken($shape, 20%);
+      box-shadow: $shadow;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+
+    span {
+      color: $shape;
+
+      &.focused {
+        color: darken($shape, 15%);
+        transition: color 0.2s ease-in-out;
+      }
+    }
+  }
+}

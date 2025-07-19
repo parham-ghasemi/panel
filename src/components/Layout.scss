@@ -1,0 +1,41 @@
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
+
+.vira-store-panel-layout {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &__navbar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: $white;
+    position: sticky;
+    z-index: 100;
+  }
+
+  &__body {
+    display: flex;
+    position: relative;
+    height: calc(100vh - 100px);
+
+    &__sidebar {
+      position: sticky;
+      right: 0;
+      border-right: 1px solid #d9e9c3;
+      top: 100px;
+      width: 240px;
+      background-color: $white;
+      height: calc(100vh - 100px);
+      z-index: 99;
+    }
+
+    &__content {
+      width: calc(100% - 240px);
+      padding: 40px 35px;
+      overflow-y: auto;
+    }
+  }
+}

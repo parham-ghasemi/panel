@@ -1,0 +1,30 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.home-container {
+  @include col;
+  gap: 24px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    @include flex;
+    gap: 6px;
+    margin-bottom: 32px;
+  }
+
+  &__cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 42px;
+  }
+
+  &__charts-container {
+    @include flex;
+    justify-content: end;
+    &__chart {
+      @include section;
+      width: 502px;
+    }
+  }
+}
