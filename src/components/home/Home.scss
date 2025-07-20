@@ -21,10 +21,17 @@
 
   &__charts-container {
     @include flex;
-    justify-content: end;
-    &__chart {
+    justify-content: space-between;
+    height: 372px;
+    &__bar-chart {
       @include section;
       width: 502px;
+      height: 100%
+    }
+    &__line-chart {
+      @include section;
+      width: 594px;
+      height: 100%;
     }
   }
 }

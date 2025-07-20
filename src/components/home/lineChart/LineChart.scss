@@ -1,0 +1,32 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.insp-homeChart {
+  display: flex;
+  flex-direction: column;
+  width: 562px;
+  height: 100%;
+
+  &__line {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    &__node {
+      @include flex;
+      gap: 4px;
+    }
+  }
+}
+
+.insp-home__statisticsSection__chart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+}

@@ -24,3 +24,11 @@ export const cardsData = [
     img: "/assets/home/customer-service.png",
   },
 ];
+
+
+export const barChartData = [
+  { name: "دماسنج", value: 32, color: "#61CE70" },
+  { name: "دارو", value: 49.24, color: "#FF928A" },
+  { name: "دارو", value: 58.29, color: "#406a91" },
+  { name: "بالشت طبی", value: 60, color: "#2C7BF3" },
+];

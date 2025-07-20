@@ -6,10 +6,12 @@
   gap: 8px;
   width: 100%;
   padding: 16px;
+  height: 100%;
 
   &__middle {
     @include flex;
     gap: 4px;
+    height: 100%;
   }
 
   &__label {
@@ -24,8 +26,32 @@
   &__rows-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    height: 100%;
     gap: 2px;
     flex-grow: 1;
+    position: relative;
+    &__bar-background {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 0;
+
+      div {
+        width: 1px;
+        height: 100%;
+        background: repeating-linear-gradient(
+          #00001a26 0 3px,
+          transparent 3px 6px
+        );
+        align-self: flex-start;
+      }
+      div:last-child {
+        background-color: black;
+      }
+    }
     &__row {
       display: flex;
       align-items: center;
@@ -35,25 +61,6 @@
         position: relative;
         flex: 1;
         min-height: 40px;
-      }
-
-      &__bar-background {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        justify-content: space-between;
-        pointer-events: none;
-        z-index: 0;
-
-        div {
-          width: 1px;
-          height: 100%;
-          background: repeating-linear-gradient(
-            #00001a26 0 3px,
-            transparent 3px 6px
-          );
-          align-self: flex-start;
-        }
       }
 
       &__bar-container {
@@ -68,7 +75,16 @@
           display: flex;
           align-items: center;
           justify-content: end;
-          transition: width 0.3s ease;
+          transition: background-color 0.3s ease;
+
+          background-color: rgba(
+            var(--bar-color-rgb),
+            0.5
+          );
+
+          &:hover {
+            background-color: rgb(var(--bar-color-rgb));
+          }
 
           &__value {
             font-size: 14px;
@@ -80,10 +96,14 @@
               color: #000;
             }
           }
+
           &__line {
             width: 3px;
             height: 100%;
             margin-left: 8px;
+            background-color: rgb(
+              var(--bar-color-rgb)
+            ); 
           }
         }
       }
