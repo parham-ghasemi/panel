@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -46,43 +46,8 @@ const fullBorderPlugin = {
   },
 };
 
-export default function LineChart() {
-  const [data, setData] = useState(null);
+export default function LineChart({lineChartData}) {
   const chartRef = useRef(null);
-
-  useEffect(() => {
-    const chartData = {
-      labels: ["شهریور", "مرداد", "تیر", "خرداد", "اردیبهشت", "فروردین"],
-      datasets: [
-        {
-          label: "بازرسی نوع اول",
-          data: [120, 160, 130, 110, 180, 90],
-          borderColor: "#355EB1",
-          pointStyle: "circle",
-          fill: false,
-          borderWidth: 2,
-          tension: 0.5,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-          pointBackgroundColor: "#355EB1",
-        },
-        {
-          label: "بازرسی نوع دوم",
-          data: [100, 140, 170, 90, 150, 70],
-          borderColor: "#2C7BF3",
-          pointStyle: "circle",
-          fill: false,
-          borderWidth: 2,
-          tension: 0.5,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-          pointBackgroundColor: "#2C7BF3",
-        },
-      ],
-    };
-
-    setData(chartData);
-  }, []);
 
   const options = {
     maintainAspectRatio: false,
@@ -122,14 +87,12 @@ export default function LineChart() {
   return (
     <div className="insp-homeChart">
       <div className="insp-homeChart__line">
-        {data && (
-          <Line
-            ref={chartRef}
-            data={data}
-            options={options}
-            plugins={[fullBorderPlugin]}
-          />
-        )}
+        <Line
+          ref={chartRef}
+          data={lineChartData}
+          options={options}
+          plugins={[fullBorderPlugin]}
+        />
       </div>
       <div className="insp-homeChart__legend">
         <div className="insp-homeChart__legend__node">

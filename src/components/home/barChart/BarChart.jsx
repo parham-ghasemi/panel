@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import "./BarChart.scss";
 
-const BarChart = ({data}) => {
+const BarChart = ({ data }) => {
+  const [animated, setAnimated] = useState(false);
+
   const hexToRgb = (hex) => {
     hex = hex.replace("#", "");
     const bigint = parseInt(hex, 16);
@@ -9,6 +12,11 @@ const BarChart = ({data}) => {
     const b = bigint & 255;
     return `${r}, ${g}, ${b}`;
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setAnimated(true), 100); // small delay for smooth animation
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <div className="chart">
@@ -34,7 +42,7 @@ const BarChart = ({data}) => {
                   <div
                     className={`chart__rows-container__row__bar-container__bar`}
                     style={{
-                      width: `${item.value}%`,
+                      width: animated ? `${item.value}%` : `0%`,
                       "--bar-color": item.color,
                       "--bar-color-rgb": hexToRgb(item.color),
                     }}
@@ -65,7 +73,7 @@ const BarChart = ({data}) => {
 
       <div className="chart__legend-container">
         {data.map((item, index) => (
-          <div className="chart__legend-container__item">
+          <div key={index} className="chart__legend-container__item">
             <span style={{ backgroundColor: item.color }}></span>
             <p>{item.name}</p>
           </div>
