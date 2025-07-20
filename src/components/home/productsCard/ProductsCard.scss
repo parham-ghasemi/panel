@@ -1,0 +1,118 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.products-card {
+  @include col;
+  align-items: center;
+  @include section;
+  box-shadow: $card-shadow;
+  padding: 16px;
+  width: 200px;
+  gap: 8px;
+  cursor: pointer;
+  outline: 1px solid transparent;
+  transition: all ease-out 200ms;
+
+  &:hover {
+    outline-color: $primary;
+    transform: translateY(-5px);
+  }
+
+  &__top {
+    height: 120px;
+    width: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__middle {
+    @include col;
+    gap: 8px;
+    align-items: center;
+    p {
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      color: $text;
+    }
+    &__tran-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: $light-text;
+    }
+    &__price {
+      font-size: 16px;
+      font-weight: 400;
+      color: $primary;
+    }
+  }
+
+  &__bottom {
+    @include col;
+    width: 100%;
+    gap: 8px;
+
+    &__rating-container {
+      flex: 1;
+      border: 1px solid $primary-very-light;
+      border-radius: 8px;
+      @include flex;
+      justify-content: space-between;
+      padding: 9px 8px;
+
+      &__rating {
+        @include flex;
+        gap: 4px;
+        font-size: 10px;
+        font-weight: 500;
+      }
+      &__remaining {
+        font-size: 8px;
+        font-weight: 400;
+        color: $medium-text;
+      }
+    }
+
+    &__remaining-container {
+      @include col;
+      gap: 2px;
+
+      &__title {
+        @include flex;
+        justify-content: space-between;
+        p {
+          font-size: 8px;
+          font-weight: 500;
+          color: $medium-text;
+        }
+      }
+
+      &__bar-container {
+        width: 100%;
+        height: 6px;
+        position: relative;
+        border-radius: 100px;
+        overflow: hidden;
+        background-color: $light-text;
+
+        &__bar {
+          position: absolute;
+          right: 0;
+          height: 100%;
+          background-color: $primary;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+}
